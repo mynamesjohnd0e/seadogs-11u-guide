@@ -2448,9 +2448,21 @@ window.SD_ANIM = (function () {
   X.banana = drill({ at: [0, 4], face: 0, cam: { az: 140, el: 20, pad: 0.35 }, cones: [[-1.1, 15.2]], lines: [{ t: 'base', x: 0, z: 18.3, rot: 45 }, { t: 'line', x1: 0.2, z1: 6, x2: 0.2, z2: 25, wd: 0.07 }, { t: 'base', x: 18.3, z: 18.3, rot: 45 }], steps: [
     { pose: 'ath', t: 0.3 }, { to: [-0.4, 11.5], endV: 5.2, label: 'Start the turn early' }, { arc: { c: [1.5, 15.6], r: 2.9, a0: -128, a1: -16 }, v: 5.0, label: 'Bow out around the cone, lean in' },
     { to: [6.5, 19.8], label: 'Hit the inside corner of the bag, drive toward second' }, { to: [9, 20.1], stop: true }] });
-  X.raise = drill({ at: [0, -2.4], face: 0, follow: true, cam: { az: 40, el: 12, pad: 0.05 }, steps: [
-    { pose: 'ath', t: 0.3 }, { to: [0, 1.6], g: 'jog', stop: true, label: 'Light jog' }, { pose: 'ath', t: 0.3 }, { to: [2.2, 1.6], g: 'shuffle', face: 0, stop: true, label: 'Shuffle left' },
-    { to: [0, 1.6], g: 'shuffle', face: 0, stop: true, label: 'Shuffle right' }, { to: [0, -0.4], g: 'bk', stop: true, label: 'Backpedal' }, { pose: 'ath', t: 0.4 }] });
+  X.raise = (function () {
+    const tog = Object.assign(stand(0.09), sides);
+    const mid = Object.assign(stand(0.2), { root: [0, ST + 0.12, 0], lf: W(0.2, 0, 0.07), rf: W(-0.2, 0, 0.07),
+      lk: D(0.14, 0, 1, 'r'), rk: D(-0.14, 0, 1, 'r'), lh: C(0.3, 0.46, 0.02), rh: C(-0.3, 0.46, 0.02), le: C(0.8, -0.1, -0.5), re: C(-0.8, -0.1, -0.5) });
+    const apart = Object.assign(stand(0.34), { lk: D(0.2, 0, 1, 'r'), rk: D(-0.2, 0, 1, 'r'),
+      lh: C(0.34, 0.96, -0.03), rh: C(-0.34, 0.96, -0.03), le: C(0.92, 0.35, -0.2), re: C(-0.92, 0.35, -0.2) });
+    const keys = [{ d: 0.5, h: 0.4, label: 'Feet together, arms down', ...tog }];
+    for (let i = 0; i < 3; i++) keys.push(
+      { d: 0.17, e: 'o', label: 'Jump the feet out, arms overhead', ...mid },
+      { d: 0.13, e: 'i', label: 'Jump the feet out, arms overhead', ...apart },
+      { d: 0.17, e: 'o', label: 'And back together', ...mid },
+      { d: 0.13, e: 'i', label: 'And back together', ...tog });
+    keys.push({ d: 0.4, h: 0.5, label: 'Easy pace: warm, not tired', ...tog });
+    return { cam: { az: 22, el: 7, dist: 4.2, ty: 0.95 }, start: tog, keys };
+  })();
 
   // ---- King Sports "16 Best Cone Drills" (youth spacing: 5 yards) ----
   const sq = [[0, 0], [0, Y5], [-Y5, Y5], [-Y5, 0]];
@@ -2749,7 +2761,7 @@ window.SD = (function () {
   const KS = 'https://www.youtube.com/watch?v=MCvNd4hBK4A', OTA1 = 'https://www.youtube.com/watch?v=7cBJsX4XeoQ', OTA2 = 'https://www.youtube.com/watch?v=_tse7OGXjA0';
   const EX = [
     // ---------------- WARM-UP ----------------
-    { id: 'raise', name: 'Easy jog or jumping jacks', cat: 'warmup', thumb: { t: 3.2 },
+    { id: 'raise', name: 'Easy jog or jumping jacks', cat: 'warmup', thumb: { t: 1.35 },
       why: 'Gets the heart rate up and the body warm before anything fast.', equip: 'Open turf',
       dose: { W: '2–3 minutes' },
       cues: ['Easy pace: warmer, not tired', 'A light jog, jumping jacks or a quick tag game all work'],
