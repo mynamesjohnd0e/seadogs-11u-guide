@@ -2748,6 +2748,12 @@ window.SD = (function () {
   const KS = 'https://www.youtube.com/watch?v=MCvNd4hBK4A', OTA1 = 'https://www.youtube.com/watch?v=7cBJsX4XeoQ', OTA2 = 'https://www.youtube.com/watch?v=_tse7OGXjA0';
   const EX = [
     // ---------------- WARM-UP ----------------
+    { id: 'raise', name: 'Easy jog or jumping jacks', cat: 'warmup', thumb: { t: 3.2 },
+      why: 'Gets the heart rate up and the body warm before anything fast.', equip: 'Open turf',
+      dose: { W: '2–3 minutes' },
+      cues: ['Easy pace: warmer, not tired', 'A light jog, jumping jacks or a quick tag game all work'],
+      watch: ['Racing during the warm-up'] },
+
     { id: 'bridge', video: 'https://www.youtube.com/shorts/LEdVLzF6kR0', vsrc: 'YouTube', name: 'Glute bridge', cat: 'warmup', also: 'strength', thumb: { k: 1 },
       why: 'Wakes up the hips that power sprinting and rotation.', equip: 'Mat (optional)',
       dose: { W: '1 × 8', L: '2 × 10 in the strength block' },
@@ -2815,7 +2821,7 @@ window.SD = (function () {
       cues: ['Wide, low lead-off on the balls of the feet', 'Pivot on the right foot, cross over with the left', 'Stay low and drive to second'], watch: ['Standing up out of the lead-off', 'Guessing early'] },
     { id: 'flying', video: 'https://www.youtube.com/shorts/Q5L2ysfXZGc', vsrc: 'YouTube', name: 'Flying 10s / 20s', cat: 'speed', thumb: { t: 3.6 },
       why: 'Builds top-end speed. Kids hit the fly zone already moving, so it is safer than all-out starts.', equip: 'Cones at 0, 15 and 25 yards (35 yards for 20s)',
-      dose: { B: '3–4 Flying 10s (15-yd build, 10-yd fly zone), 2 min rest', A: '3–4 Flying 20s if the gym is long enough (15-yd build, 20-yd fly zone)' },
+      dose: { B: '3–4 Flying 10s (15-yd build, 10-yd fly zone), 2 min rest', A: '3–4 Flying 20s if there is room on the turf (15-yd build, 20-yd fly zone)' },
       cues: ['Build up smoothly over the first 15 yards', 'In the fly zone: all-out but relaxed, face and shoulders loose', 'Toes up; feet land under the hips'],
       watch: ['Leaning back', 'Reaching out and landing on the heel', 'Not enough run-out space at the end'] },
     { id: 'strides', video: 'https://www.youtube.com/watch?v=IQrbQMPbTtU', vsrc: 'YouTube', name: 'Upright strides (build-up runs)', cat: 'speed', anim: 'flying', thumb: { t: 3.0 },
@@ -2842,13 +2848,13 @@ window.SD = (function () {
     { id: 'dropstep', video: 'https://www.youtube.com/watch?v=oBLMNIPupPU', vsrc: 'YouTube', name: 'Drop-step and go', cat: 'speed', thumb: { t: 1.5 },
       why: 'The first move going back on a fly ball, or to a ball hit to the side.', equip: 'Cones', dose: { L: '2 × 3 per side' },
       cues: ['Athletic stance', 'Open the hip: step back at an angle with one foot', 'Push off and sprint at that angle'], watch: ['Backpedaling instead of turning'] },
-    { id: 'shuttle', name: '5-10-5 shuttle (pro agility)', cat: 'speed', fam: 'cone', video: KS, thumb: { t: 2.42 },
+    { id: 'shuttle', name: '5-10-5 shuttle (pro agility)', cat: 'speed', fam: 'cone', video: 'https://www.youtube.com/shorts/51yQhTsUsVI', vsrc: 'YouTube', thumb: { t: 2.42 },
       why: 'Change of direction: plant, turn and re-accelerate.', equip: '3 lines, 5 yards apart',
       dose: { B: '2 practice reps', A: '2 reps', T: 'Test: best of 2, one each direction' },
       cues: ['Straddle the middle line, one hand down', 'Start braking with the step before the line, then plant low on the outside foot and touch it', 'Turn the hips and drive out low; sprint through the middle'],
       watch: ['Standing up tall to turn', 'Missing the line (no touch, no count)', 'Trying to stop with only the last step'], note: 'Teach a quick, controlled stop first. Kids run this hard only after they can stop well.' },
     { id: 'homefirst', video: 'https://www.youtube.com/watch?v=QkKo8BqQWlw', vsrc: 'YouTube', name: 'Home to first: run through', cat: 'speed', thumb: { t: 2.3 },
-      why: 'The most common sprint in baseball.', equip: 'Flat throw-down base 60 feet from a plate', setup: 'Most gyms fit 60 feet. Leave 10–15 yards of run-out past the bag. No sliding indoors.',
+      why: 'The most common sprint in baseball.', equip: 'Flat throw-down base 60 feet from a plate', setup: 'A turf field fits 60 feet with room to spare. Leave 10–15 yards of run-out past the bag. No sliding indoors.',
       dose: { B: 'Walk-through, then 4 × 75%', A: '4–6 timed reps' },
       cues: ['Drive out low for the first steps', 'Run through the front edge of the bag; don\'t jump at it', 'Break down after the bag and look right for an overthrow'], watch: ['Leaping at the bag', 'Slowing down before the bag'] },
     { id: 'banana', video: 'https://www.youtube.com/shorts/fdhlBvOBLwY', vsrc: 'YouTube', name: 'Banana turn (rounding first)', cat: 'speed', thumb: { t: 2.3 },
@@ -2915,7 +2921,7 @@ window.SD = (function () {
 
     // ---- shuffles and reaction drills (Overtime Athletes baseball agility sessions) ----
     { id: 'shuffle2', name: 'Lateral power & speed shuffles', cat: 'speed', fam: 'react', video: 'https://www.youtube.com/shorts/sCyqd-kiWII', vsrc: 'YouTube', thumb: { t: 1.6 },
-      why: 'Two kinds of shuffle. Power shuffles teach the push; speed shuffles teach fast feet. Both are prep for the reaction drills.', equip: '10 yards of floor',
+      why: 'Two kinds of shuffle. Power shuffles teach the push; speed shuffles teach fast feet. Both are prep for the reaction drills.', equip: '10 yards of turf',
       dose: { L: '1 × 10 yd each way: power down, speed back', B: '2 × 10 yd each way' },
       cues: ['Power: push hard off the trail leg; don\'t rush into the next step', 'Speed: short, choppy, fast steps', 'Hips low, chest up, feet never closer than about 6 inches'],
       watch: ['Feet clicking together', 'Bobbing up and down', 'Crossing the feet'] },
@@ -2943,13 +2949,13 @@ window.SD = (function () {
 
     // ---------------- JUMPS ----------------
     { id: 'pogo', video: 'https://www.youtube.com/shorts/MMXLE-bveAI', vsrc: 'YouTube', name: 'Pogo line hops', cat: 'jump', also: 'warmup', thumb: { t: 1.3 },
-      why: 'Builds stiff, springy ankles for faster sprinting.', equip: 'A tape line on the floor',
+      why: 'Builds stiff, springy ankles for faster sprinting.', equip: 'A tape line on the turf',
       dose: { W: '2 × 10 s', L: '2 × 10 s', B: '2 × 12 s', A: '3 × 15 s' },
       cues: ['Feet together, stand tall', 'Hop over the line and back: quick, stiff ankles', 'Bounce off the balls of the feet like the floor is hot'],
       watch: ['Sinking into a squat between bounces', 'Landing on the heels'], note: 'Skip pogos for any kid with heel pain (possible Sever\'s disease). Swap in upper-body and core work that day.' },
 
     { id: 'latpogo', video: 'https://www.youtube.com/shorts/FqbcTmDy6Ps', vsrc: 'YouTube', name: 'Lateral pogo line hops', cat: 'jump', also: 'warmup', thumb: { t: 1.3 },
-      why: 'Springy ankles moving sideways, the base for shuffles and crossovers.', equip: 'A tape line on the floor',
+      why: 'Springy ankles moving sideways, the base for shuffles and crossovers.', equip: 'A tape line on the turf',
       dose: { W: 'Weeks 3–12: 2 × 10 s', L: '2 × 10 s', B: '2 × 12 s', A: '3 × 15 s' },
       cues: ['Feet together beside the line', 'Hop side to side over the line: quick, stiff bounces', 'Stay tall; land quietly on the balls of the feet'],
       watch: ['Sinking into a squat between hops', 'Feet splitting apart'], note: 'Skip these for any kid with heel pain, same as pogos.' },
@@ -2961,13 +2967,13 @@ window.SD = (function () {
       watch: ['Skipping for distance instead of height', 'Arms flopping at the sides'] },
 
     { id: 'sl_pogo', video: 'https://www.youtube.com/shorts/HsvARe_nWe0', vsrc: 'YouTube', name: 'Single-leg pogo line hops', cat: 'jump', thumb: { t: 1.3 },
-      why: 'Stiff, springy ankle on one leg, which is how the body lands on every sprint step.', equip: 'A tape line on the floor',
+      why: 'Stiff, springy ankle on one leg, which is how the body lands on every sprint step.', equip: 'A tape line on the turf',
       dose: { B: '2 × 10 s per leg', A: '3 × 10 s per leg' },
       cues: ['Balance on one leg behind the line', 'Hop over the line and back: quick and quiet', 'Knee stays over the toes'],
       watch: ['Knee caving in', 'Big, heavy landings'], note: 'Skip these for any kid with heel pain (possible Sever\'s disease), same as pogos.' },
 
     { id: 'sl_latpogo', video: 'https://www.youtube.com/shorts/tCzxYzBwYyo', vsrc: 'YouTube', name: 'Single-leg lateral line hops', cat: 'jump', thumb: { t: 1.3 },
-      why: 'One-leg control moving sideways, for pushing off on shuffles, crossovers and steals.', equip: 'A tape line on the floor',
+      why: 'One-leg control moving sideways, for pushing off on shuffles, crossovers and steals.', equip: 'A tape line on the turf',
       dose: { B: '2 × 10 s per leg', A: '3 × 10 s per leg' },
       cues: ['Balance on one leg beside the line', 'Hop side to side: small, quick hops', 'Knee stays over the toes'],
       watch: ['Knee caving in', 'Hopping too far: small and quick wins'], note: 'Skip these for any kid with heel pain (possible Sever\'s disease), same as pogos.' },
@@ -3105,17 +3111,17 @@ window.SD = (function () {
       cues: ['Hop forward off the back foot', 'Plant the front foot, ball behind the head', 'Crunch and throw it through the wall'],
       watch: ['Landing off balance before the throw'] },
     { id: 'sm_back_oh', name: 'Backward overhead throw for distance', cat: 'medball', fam: 'dist', art: '10–20 lb', video: 'https://www.youtube.com/watch?v=fzc5aGvOfrs', thumb: { k: 3 },
-      why: 'A full-body power throw: squat, explode, and throw it over your head as far as you can.', equip: '4–6 lb med ball, a field or a very large gym, tape measure',
+      why: 'A full-body power throw: squat, explode, and throw it over your head as far as you can.', equip: '4–6 lb med ball, a field or plenty of open turf, tape measure',
       dose: { B: '2 × 3', A: '2 × 3 (for distance)' },
       cues: ['Swing the ball down between the legs into a deep squat', 'Explode: legs, hips, then arms', 'Let it go over your head; arms stay straight'],
       watch: ['Leaning back too early', 'Anyone standing behind the thrower'] },
     { id: 'sm_fwd_scoop_dist', name: 'Forward scoop toss for distance', cat: 'medball', fam: 'dist', art: '10–20 lb', video: 'https://www.youtube.com/watch?v=wPEYsRVChNE', thumb: { k: 3 },
-      why: 'Same explosive swing, thrown forward. Great for a longest-throw competition.', equip: '4–6 lb med ball, a field or a very large gym, tape measure',
+      why: 'Same explosive swing, thrown forward. Great for a longest-throw competition.', equip: '4–6 lb med ball, a field or plenty of open turf, tape measure',
       dose: { B: '2 × 3', A: '2 × 3 (for distance)' },
       cues: ['Ball overhead, swing it between the legs', 'Explode forward and up', 'Let it go out in front at about eye height'],
       watch: ['Rounded back at the bottom'] },
     { id: 'sm_vert_scoop', name: 'Vertical scoop toss for height', cat: 'medball', fam: 'dist', art: '10–20 lb', video: 'https://www.youtube.com/watch?v=JBFun7KvQ7M', thumb: { k: 3 },
-      why: 'Throw it as high as you can. Only outdoors or in a gym with a very high ceiling.', equip: '4–6 lb med ball, outdoors',
+      why: 'Throw it as high as you can. Best outdoors or anywhere with plenty of height overhead.', equip: '4–6 lb med ball, outdoors',
       dose: { A: '2 × 3 (outdoors only)' },
       cues: ['Swing it between the legs into a squat', 'Jump and throw it straight up', 'Step out of the way right away and watch it land'],
       watch: ['Staying under the ball', 'Low ceilings or lights overhead'] },
@@ -3199,7 +3205,7 @@ window.SD = (function () {
       why: 'Adds rotation control to the side plank.', equip: 'Mat', dose: { A: '2 × 6 per side' },
       cues: ['Reach the top arm under your body', 'Then open up to the ceiling; eyes follow the hand', 'Hips stay high the whole time'], watch: ['Hips dropping during the reach'], easierId: 'sideplank' },
     { id: 'bear', video: 'https://www.youtube.com/shorts/iuR17xUXLeA', vsrc: 'YouTube', name: 'Bear crawl', cat: 'core', thumb: { t: 1.0 },
-      why: 'Shoulder and core stability, and a great relay event.', equip: '10 yards of floor', dose: { B: '3 × 10 yd', A: '3 × 10 yd, forward and back' },
+      why: 'Shoulder and core stability, and a great relay event.', equip: '10 yards of turf', dose: { B: '3 × 10 yd', A: '3 × 10 yd, forward and back' },
       cues: ['Knees hover 2 inches off the floor', 'Back flat as a table', 'Opposite hand and foot move together'], watch: ['Hips high in the air', 'Knees touching down'] },
 
     // ---------------- ARM CARE (Youth Thrower's Ten selection) ----------------
@@ -3342,10 +3348,10 @@ window.SD = (function () {
 
   // ---------------- WARM-UP (RAMP) ----------------
   const RAMP = [
-    { name: 'Raise', what: 'Heart rate up', min: 3, items: [it('shuffle2', '1 × 10 yd each way, easy'), it('askip', '2 × 10 yd')] },
+    { name: 'Raise', what: 'Heart rate up', min: 3, items: [it('raise', '2–3 min easy')] },
     { name: 'Activate', what: 'Wake up the muscles', min: 3, items: [it('bridge', '× 8'), it('sideplank', '15 s per side'), it('sl_balance', '20 s per leg'), it('sh_er90', '× 10 per arm')] },
-    { name: 'Mobilize', what: 'Move through range', min: 3, items: [it('kneehug', '10 yd'), it('quadpull', '10 yd'), it('spiderman', '3 per side'), it('inchworm', '3–4'), it('armcircles', 'Small to big')] },
-    { name: 'Potentiate', what: 'Prime for speed', min: 3, items: [it('pogo', '2 × 10 s'), it('latpogo', 'Weeks 3–12: 2 × 10 s'), it('powerskip', '2 × 10 yd'), it('strides', '2 build-ups at 70% and 90%')] }];
+    { name: 'Mobilize', what: 'Move through range', min: 3, items: [it('kneehug', '10 yd'), it('quadpull', '10 yd'), it('spiderman', '3 per side'), it('inchworm', '3–4'), it('armcircles', 'Small to big'), it('askip', '2 × 10 yd')] },
+    { name: 'Potentiate', what: 'Prime for speed', min: 3, items: [it('pogo', '2 × 10 s'), it('latpogo', 'Weeks 3–12: 2 × 10 s'), it('powerskip', '2 × 10 yd'), it('shuffle2', '1 × 10 yd each way'), it('strides', '2 build-ups at 70% and 90%')] }];
 
   // ---------------- TESTING ----------------
   const TESTS = [
@@ -3368,13 +3374,13 @@ window.SD = (function () {
 
   // ---------------- GAMES ----------------
   const GAMES = [
-    { id: 'catmouse', kind: 'Speed', name: 'Cat & Mouse', ex: 'start2pt', how: 'Two kids in a line, 2 yards apart. On "Go!" the front runner sprints to a cone 15 yards away while the back runner tries to tag them. Switch roles.', builds: 'Acceleration, reaction', fair: 'Change the gap (1–3 yards) so every pair is a close race.' },
+    { id: 'catmouse', kind: 'Speed', name: 'Cat & Mouse', video: 'https://www.youtube.com/shorts/ZPqAo7zH7rk', ex: 'start2pt', how: 'Two kids in a line, 2 yards apart. On "Go!" the front runner sprints to a cone 15 yards away while the back runner tries to tag them. Switch roles.', builds: 'Acceleration, reaction', fair: 'Change the gap (1–3 yards) so every pair is a close race.' },
     { id: 'roulette', kind: 'Speed', name: 'Start-Position Roulette', ex: 'startpush', how: 'Partner races from random starts: lying face-down, seated, kneeling, backward.', builds: 'Acceleration, reaction', fair: 'Rotate partners by size every round.' },
-    { id: 'balldrop', kind: 'Speed', name: 'Ball-Drop Race', ex: 'shuffledrop', how: 'Coach holds a tennis ball at shoulder height and drops it. The athlete sprints to catch it before the second bounce. Step back a foot after each catch. Level up: start from a shuffle between two cones, or the coach flicks the ball instead of dropping it.', builds: 'Reaction, first step', fair: 'Everyone chases their own record distance.' },
-    { id: 'relay', kind: 'Speed', name: 'Base-Running Relay', ex: 'banana', how: 'Teams run home to first, banana-turn to second, then hand off.', builds: 'Base-running, curved sprinting', fair: 'Team score, not individual. Mix fast and developing runners.' },
+    { id: 'balldrop', kind: 'Speed', name: 'Ball-Drop Race', video: 'https://www.youtube.com/shorts/cZ60c3HYt7M', ex: 'shuffledrop', how: 'Coach holds a tennis ball at shoulder height and drops it. The athlete sprints to catch it before the second bounce. Step back a foot after each catch. Level up: start from a shuffle between two cones, or the coach flicks the ball instead of dropping it.', builds: 'Reaction, first step', fair: 'Everyone chases their own record distance.' },
+    { id: 'relay', kind: 'Speed', name: 'Base-Running Relay', video: 'https://www.youtube.com/watch?v=HwU1IaR8tBY', ex: 'banana', how: 'Teams run home to first, banana-turn to second, then hand off.', builds: 'Base-running, curved sprinting', fair: 'Team score, not individual. Mix fast and developing runners.' },
     { id: 'steal', kind: 'Speed', name: 'Steal-Reaction Race', ex: 'steal', how: 'From a lead-off, the coach makes a pitch or pickoff move. Athletes break for second or get back (touch a cone; no diving indoors).', builds: 'Reaction, lateral start', fair: 'Points for correct reads, not just speed.' },
     { id: 'handicap', kind: 'Speed', name: 'Handicap Relays', ex: 'start2pt', how: 'Use Week 1 Combine Day times to give slower runners a head start, like a golf handicap.', builds: 'Max effort from everyone', fair: 'Races come down to the wire, so everyone runs hard.' },
-    { id: 'mirror', kind: 'Speed', name: 'Mirror Drill', ex: 'startlat', how: 'Partners face each other between two cones. The leader shuffles and cuts; the follower mirrors. 10 seconds, then switch.', builds: 'Reactive cutting', fair: 'Pair by size and quickness.' },
+    { id: 'mirror', kind: 'Speed', name: 'Mirror Drill', video: 'https://www.youtube.com/shorts/-MNEPW1GqGs', ex: 'startlat', how: 'Partners face each other between two cones. The leader shuffles and cuts; the follower mirrors. 10 seconds, then switch.', builds: 'Reactive cutting', fair: 'Pair by size and quickness.' },
     { id: 'walltoss', kind: 'Power', name: 'Wall Target Toss', ex: 'mb_hitter', how: 'Tape squares on the wall: high = 3 points, middle = 2, low = 1. Rotational throws must hit a zone.', builds: 'Rotational power and control', fair: 'Points for accuracy reward technique, not just size.' },
     { id: 'bowling', kind: 'Power', name: 'Med Ball Bowling', ex: 'mb_scoop', how: 'Rotational side throws to knock over cones 15–25 feet away.', builds: 'Rotational power', fair: 'Kids pick their distance line; a harder line is worth more points.' },
     { id: 'ladder', kind: 'Power', name: 'Longest Throw Ladder', ex: 'mb_hitter', how: 'Tape-measure distance. Each kid chases their own personal best. A new PB earns a team point.', builds: 'Rotational power', fair: 'Compete against yourself.' },
@@ -3411,7 +3417,7 @@ window.SD = (function () {
     { h: 'Growth spurts', p: ['Measure height on each test day. A kid who shot up a couple of inches may test flat or even slower. Say it out loud: "That\'s normal, your body is busy growing."', 'For head-to-head races, group kids by size rather than birth date.'] },
     { h: 'Multi-sport kids', p: ['Ask families what else kids play this winter.', 'A kid with basketball three nights a week already gets plenty of jumping. Cut their jump volume in half and keep them in speed, med ball and strength work.'] },
     { h: 'Arm safety', p: ['No throwing in this program, November through January.', 'Never let kids "test" arm strength with max-effort throws.'] },
-    { h: 'Indoor safety', p: ['No sliding or diving on gym floors; use flat throw-down bases.', 'Leave 10–15 yards of run-out past every finish line, or end sprints well short of walls.'] },
+    { h: 'Turf safety', p: ['No sliding or diving; use flat throw-down bases on the turf.', 'Leave 10–15 yards of run-out past every finish line, or end sprints well short of walls or netting.'] },
     { h: 'Emergency basics', p: ['Parent contact list, first-aid kit, a known AED location, and a written plan for an injury.'] }];
   const TANK = {
     what: 'Tidal Tanks are clear tubes and balls you fill with water. The water keeps moving, so your body has to control it. For baseball, that means staying stable while you rotate, then stopping the rotation on purpose.',
@@ -3559,9 +3565,9 @@ window.SDP = (function () {
   const PEX = {
     sideshuffle: { id: 'sideshuffle', name: 'Side shuffle', anim: 'shuffle5s', cat: 'Speed',
       equip: 'Two markers about 3 big steps apart.',
-      why: 'Quick, low side-to-side steps — the footwork for fielding grounders and changing direction on the bases.',
-      steps: ['Ready at one marker', 'Go — quick, low feet', 'Plant the outside foot, push back', 'Stay low all the way across', 'Keep it quick, back and forth'],
-      cues: ['Stay low with a tall chest.', 'Push hard off the outside foot.', 'Keep your feet apart — never click your heels together.', 'Lots of little quick steps, not big ones.'],
+      why: 'Quick, low side-to-side steps, the footwork for fielding grounders and changing direction on the bases.',
+      steps: ['Ready at one marker', 'Go: quick, low feet', 'Plant the outside foot, push back', 'Stay low all the way across', 'Keep it quick, back and forth'],
+      cues: ['Stay low with a tall chest.', 'Push hard off the outside foot.', 'Keep your feet apart; never click your heels together.', 'Lots of little quick steps, not big ones.'],
       watch: ['Standing up tall and slowing down.', 'Feet crossing over instead of shuffling.', 'Bouncing up and down instead of staying low.'] }
   };
 
@@ -3630,7 +3636,7 @@ window.SDP = (function () {
     sideplank: 'A rug or mat.', sideplank_reach: 'A rug or mat.',
     bridge: 'A rug or mat.', deadbug: 'A rug or mat.',
     sl_balance: 'Any floor. Barefoot is fine.',
-    sideshuffle: 'Two shoes or markers about 3 big steps apart. Shuffle quickly from one to the other and back — no timer needed, just quick, low feet.',
+    sideshuffle: 'Two shoes or markers about 3 big steps apart. Shuffle quickly from one to the other and back. No timer needed, just quick, low feet.',
     skater: 'Room to move sideways, about 3 big steps.', broadjump: 'A floor that won\'t slip and room to land. Mark the landing with a shoe.',
     pushup: 'Floor, or hands on a sturdy counter or the third stair if the floor is too hard. Put a fist under the chest and touch it on every rep. If the body sags, the set is over.',
     slhop: 'Any floor. Shoes on.', bear: 'About 12 yards of floor or grass.',
@@ -3649,7 +3655,7 @@ window.SDP = (function () {
     'Nothing the day before a Combine Day (Weeks 1, 6 and 12).',
     'Perfect reps beat fast reps. If form breaks down, end the set.',
     'Stop if anything hurts, and let the coach know.',
-    'No overhand throwing or pitching at home until late February — the winter plan rests the arm on purpose.',
+    'No overhand throwing or pitching at home until late February. The winter plan rests the arm on purpose.',
     'Make it a game: count side-shuffle touches, race the bear crawl, or let your player coach a sibling.'];
 
   const SLEEP = {
