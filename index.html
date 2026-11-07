@@ -82,6 +82,9 @@ section.view { padding-top: 28px; display: grid; gap: 28px; }
 .btn.red { background: var(--red); color: #ffffff; }
 .btn.ghost { background: transparent; color: var(--on-dark); box-shadow: inset 0 0 0 2px rgba(255, 255, 255, .35); }
 .btn.line { background: var(--surface); color: var(--ink); box-shadow: inset 0 0 0 1.5px var(--line); }
+.watch-link { margin: 10px 0 2px; display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; }
+.watch-link .btn { display: inline-flex; align-items: center; }
+.via { font-size: 13px; color: var(--ink-2); }
 .tag { display: inline-block; font: 700 11px/1 var(--f-label); letter-spacing: .1em; text-transform: uppercase; padding: 5px 7px; border-radius: 6px; background: var(--surface-2); color: var(--ink-2); }
 .phase-L { --ph: var(--learn); } .phase-B { --ph: var(--build); } .phase-A { --ph: var(--apply); }
 .ph-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--ph); display: inline-block; }
@@ -3574,6 +3577,7 @@ window.SD = (function () {
   }
   function itemRow(it) { return it.id ? rowHTML(it.id, it.dose) : `<div class="row static"><span class="noimg"></span><span class="nm">${esc(it.name)}<span class="ds">${esc(it.dose)}</span></span><span></span></div>`; }
   const GM = Object.fromEntries(D.GAMES.map(g => [g.id, g]));
+  const watchBtn = (url, label, src) => `<p class="watch-link"><a class="btn line" href="${url}" target="_blank" rel="noopener">\u25B6&nbsp; ${label}</a>${src && src !== 'YouTube' ? `<span class="via">via ${esc(src)}</span>` : ''}</p>`;
   function gameMini(id) { const g = GM[id]; return `<div class="game-mini"><b>${esc(g.name)}</b><span>${esc(g.how)}</span><span class="fair">Keep it fair: ${esc(g.fair)}</span></div>`; }
 
   // ---------------- phases & weeks ----------------
@@ -3704,7 +3708,7 @@ window.SD = (function () {
     $('#pts').innerHTML = D.POINTS.map(([a, b]) => `<div><span>${esc(a)}</span><b>${esc(b)}</b></div>`).join('');
     const kinds = [['Speed', 'Speed games'], ['Power', 'Power & core games'], ['Team', 'Team challenge']];
     $('#games-list').innerHTML = kinds.map(([k, h]) => `<div style="display:grid;gap:12px"><h3>${h}</h3><div class="grid3">${D.GAMES.filter(g => g.kind === k).map(g =>
-      `<div class="card game"><h3>${esc(g.name)}</h3><dl><dt>How it works</dt><dd>${esc(g.how)}</dd><dt>Builds</dt><dd>${esc(g.builds)}</dd><dt>Keep it fair</dt><dd>${esc(g.fair)}</dd></dl><a class="see" href="#ex-${slug(g.ex)}">See the movement in 3D</a>${g.video ? `<a class="see" href="${esc(g.video)}" target="_blank" rel="noopener">Watch the game on YouTube</a>` : ''}</div>`).join('')}</div></div>`).join('');
+      `<div class="card game"><h3>${esc(g.name)}</h3><dl><dt>How it works</dt><dd>${esc(g.how)}</dd><dt>Builds</dt><dd>${esc(g.builds)}</dd><dt>Keep it fair</dt><dd>${esc(g.fair)}</dd></dl><a class="see" href="#ex-${slug(g.ex)}">See the movement in 3D</a>${g.video ? watchBtn(g.video, 'Watch the game on YouTube') : ''}</div>`).join('')}</div></div>`).join('');
   }
   function renderArm() {
     $('#arm-rest').innerHTML = D.ARM.rest.map(r => `<li>${esc(r)}</li>`).join('');
@@ -3829,8 +3833,8 @@ window.SD = (function () {
     if (e.easierId) rel.push(`Easier: <a href="#ex-${slug(e.easierId)}">${esc(EXM[e.easierId].name)}</a>`); else if (e.easier) rel.push(`Easier: <span>${esc(e.easier)}</span>`);
     if (e.harderId) rel.push(`Harder: <a href="#ex-${slug(e.harderId)}">${esc(EXM[e.harderId].name)}</a>`); else if (e.harder) rel.push(`Harder: <span>${esc(e.harder)}</span>`);
     const used = usedIn(id), st = e.step ? D.MB.steps[e.step - 1] : null;
-    const coneInfo = e.cat !== 'medball' && e.video ? `<div class="mbline">${e.fam ? `<span class="tag">${e.fam === 'cone' ? 'Cone drill' : 'Reaction drill'}</span>` : ''}<a href="${e.video}" target="_blank" rel="noopener">Watch the drill video (${esc(e.vsrc || 'King Sports')})</a></div>` : '';
-    const mbInfo = e.cat === 'medball' && (st || e.video) ? `<div class="mbline">${st ? `<span class="tag${e.earn ? ' earn' : ''}">Step ${st[0]} · ${esc(st[1])}${e.earn ? ' · Earn it' : ''}</span>` : ''}${e.video ? `<a href="${e.video}" target="_blank" rel="noopener">Watch the demo video (${esc(e.vsrc || 'Simone Baseball Performance')})</a>` : ''}</div>` : '';
+    const coneInfo = e.cat !== 'medball' && e.video ? `${e.fam ? `<div class="mbline"><span class="tag">${e.fam === 'cone' ? 'Cone drill' : 'Reaction drill'}</span></div>` : ''}${watchBtn(e.video, 'Watch the drill on YouTube', e.vsrc || 'King Sports')}` : '';
+    const mbInfo = e.cat === 'medball' && (st || e.video) ? `${st ? `<div class="mbline"><span class="tag${e.earn ? ' earn' : ''}">Step ${st[0]} · ${esc(st[1])}${e.earn ? ' · Earn it' : ''}</span></div>` : ''}${e.video ? watchBtn(e.video, 'Watch the drill on YouTube', e.vsrc || 'Simone Baseball Performance') : ''}` : '';
     $('#sh-info').innerHTML = `${coneInfo}${mbInfo}<p class="why">${esc(e.why)}</p>
       <div><h4>Dose</h4><div class="tbl-wrap"><table class="dose"><tbody>${doseRows}</tbody></table></div></div>
       <div><h4>Say this</h4><ul class="cues">${e.cues.map(c => `<li>${esc(c)}</li>`).join('')}</ul></div>
